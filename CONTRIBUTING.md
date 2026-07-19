@@ -11,10 +11,9 @@ Example:
 
 ```
 feature/backend-setup
-feature/ring-buffer
-feature/event-producer
-feature/frontend-ui
-feature/devops
+feature/backend-package
+feature/react-application
+
 ```
 
 # Development Workflow
