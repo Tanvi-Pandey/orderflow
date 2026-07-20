@@ -60,8 +60,11 @@ OrderFlow/
 
 ## 📅 Project Status
 
-Current Sprint: **Week 1 – Project Initialization**
+Sprint: **Week 1 – Project Initialization**
 Status: Complete
+
+Current Sprint: **Week 1 – Matching Logic and WebSocket Integration**
+Status: Ongoing
 
 
 ## 📌 Note  <!--Added instead of the License-->
