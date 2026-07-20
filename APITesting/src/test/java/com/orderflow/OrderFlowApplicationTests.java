@@ -1,13 +1,11 @@
-package com.stockexchange;
+package com.orderflow;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MatchingEngineApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+class OrderFlowApplicationTests {
+    @Test
+    void contextLoads() {
+    }
 }
