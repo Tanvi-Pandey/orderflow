@@ -1,174 +1,117 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+      {/* ================= FOOTER ================= */}
 
-body {
-  background: #f5f7fb;
-}
+      <footer className="footer">
 
+        <div className="footer-left">
 
-/* Navbar */
+          <div className="logo">
 
-.navbar {
-  height: 70px;
-  background: #111827;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-}
+            <FaChartLine />
 
-.navbar h1 {
-  font-size: 28px;
-}
+            <h2>
+              OrderFlow
+            </h2>
 
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
+          </div>
 
-.nav-links span {
-  cursor: pointer;
-}
+          <p>
+            Smart trading dashboard for modern investors.
+            Track markets, manage portfolios and make
+            better investment decisions.
+          </p>
 
-.profile {
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-}
-
-
-/* Dashboard */
-
-.dashboard {
-  padding: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
-}
-
-
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-
-.card h2 {
-  margin-bottom: 20px;
-}
-
-
-/* Form */
-
-.trade-buttons {
-  display: flex;
-  gap: 15px;
-}
-
-.buy,
-.sell {
-  width: 50%;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  color: white;
-}
-
-.buy {
-  background: green;
-}
-
-.sell {
-  background: red;
-}
-
-
-label {
-  display: block;
-  margin-top: 15px;
-}
-
-
-input,
-select {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-
-.value {
-  margin: 20px 0;
-  font-weight: bold;
-}
-
-
-.place {
-  width: 100%;
-  padding: 14px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 10px;
-}
+        </div>
 
 
 
-/* Market */
+        <div className="footer-links">
 
-.market-box {
-  background: #f1f5f9;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-}
+          <div>
 
-.market-box span {
-  color: green;
-}
+            <h3>
+              Platform
+            </h3>
 
+            <a href="#">
+              Markets
+            </a>
 
-/* Table */
+            <a href="#">
+              Trading
+            </a>
 
-.history {
-  grid-column: span 2;
-}
+            <a href="#">
+              Portfolio
+            </a>
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 15px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
+          </div>
 
 
-/* Mobile */
 
-@media(max-width:768px){
+          <div>
 
-.dashboard {
-  grid-template-columns: 1fr;
-}
+            <h3>
+              Company
+            </h3>
 
-.history {
-  grid-column: span 1;
-}
+            <a href="#">
+              About
+            </a>
 
-.nav-links {
-  display: none;
-}
+            <a href="#">
+              Careers
+            </a>
+
+            <a href="#">
+              Contact
+            </a>
+
+          </div>
+
+
+
+          <div>
+
+            <h3>
+              Support
+            </h3>
+
+            <a href="#">
+              Help Center
+            </a>
+
+            <a href="#">
+              Privacy
+            </a>
+
+            <a href="#">
+              Terms
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </footer>
+
+
+
+      {/* ================= COPYRIGHT ================= */}
+
+      <div className="copyright">
+
+        © 2026 OrderFlow. All Rights Reserved.
+
+      </div>
+
+
+    </div>
+
+  );
 
 }
+
+
+export default App;
