@@ -17,4 +17,13 @@ public class OrderBook {
     public SellOrderBook getSellOrderBook() {
         return sellOrderBook;
     }
+
+    public boolean isEmpty() {
+        return buyOrderBook.isEmpty() && sellOrderBook.isEmpty();
+    }
+
+    public void clear() {
+        buyOrderBook.clear();
+        sellOrderBook.clear();
+    }
 }
