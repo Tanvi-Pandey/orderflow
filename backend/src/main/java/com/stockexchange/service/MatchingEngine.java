@@ -6,20 +6,22 @@ import com.stockexchange.enums.OrderType;
 import com.stockexchange.model.Order;
 import com.stockexchange.model.Trade;
 import com.stockexchange.orderbook.OrderBook;
-
+import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicLong;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+@Service
 public class MatchingEngine {
 
     private final OrderBook orderBook;
     private final TradeService tradeService;
     private final AtomicLong tradeIdGenerator = new AtomicLong(1);
 
-    public MatchingEngine(OrderBook orderBook, TradeService tradeService) {
+    public MatchingEngine(OrderBook orderBook,TradeService tradeService) {
         this.orderBook = orderBook;
-        this.tradeService = tradeService;
-    }
+        this.tradeService = tradeService;}
 
     public void processOrder(Order order) {
         if (order.getSide() == OrderSide.BUY) {

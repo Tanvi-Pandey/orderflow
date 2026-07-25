@@ -16,18 +16,11 @@ public class OrderService {
     private final AtomicLong orderIdGenerator = new AtomicLong(1);
 
     private final OrderBook orderBook;
-    private final TradeService tradeService;
     private final MatchingEngine matchingEngine;
 
-    public OrderService(TradeService tradeService) {
-
-        this.tradeService = tradeService;
-
-        this.orderBook = new OrderBook();
-
-        this.matchingEngine =
-                new MatchingEngine(orderBook, tradeService);
-    }
+    public OrderService(OrderBook orderBook,MatchingEngine matchingEngine) {
+        this.orderBook = orderBook;
+        this.matchingEngine = matchingEngine; }
 
     public OrderResponse placeOrder(OrderRequest request) {
 
