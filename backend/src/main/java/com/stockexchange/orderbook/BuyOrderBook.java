@@ -13,12 +13,14 @@ public class BuyOrderBook {
             new TreeMap<>((a, b) -> Double.compare(b, a));
 
     public void addOrder(Order order) {
+
         buyOrders
                 .computeIfAbsent(order.getPrice(), p -> new LinkedList<>())
                 .offer(order);
     }
 
     public Order peekBestOrder() {
+
         if (buyOrders.isEmpty()) {
             return null;
         }
@@ -26,7 +28,7 @@ public class BuyOrderBook {
         return buyOrders.firstEntry().getValue().peek();
     }
 
-    public Order removeBestOrder() {
+    public Order pollBestOrder() {
 
         if (buyOrders.isEmpty()) {
             return null;
@@ -43,28 +45,6 @@ public class BuyOrderBook {
         return order;
     }
 
-    public void updateBestOrder(Order order) {
-
-        if (buyOrders.isEmpty()) {
-            return;
-        }
-
-        Queue<Order> queue = buyOrders.firstEntry().getValue();
-
-        queue.poll();
-
-        queue.offer(order);
-    }
-
-    public Double getBestPrice() {
-
-        if (buyOrders.isEmpty()) {
-            return null;
-        }
-
-        return buyOrders.firstKey();
-    }
-
     public boolean isEmpty() {
         return buyOrders.isEmpty();
     }
@@ -74,6 +54,6 @@ public class BuyOrderBook {
     }
 
     public void clear() {
-        buyOrders.clear();
-    }
+    buyOrders.clear();
+}
 }

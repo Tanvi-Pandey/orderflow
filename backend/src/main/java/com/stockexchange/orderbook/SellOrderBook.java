@@ -28,7 +28,7 @@ public class SellOrderBook {
         return sellOrders.firstEntry().getValue().peek();
     }
 
-    public Order removeBestOrder() {
+    public Order pollBestOrder() {
 
         if (sellOrders.isEmpty()) {
             return null;
@@ -45,28 +45,6 @@ public class SellOrderBook {
         return order;
     }
 
-    public void updateBestOrder(Order order) {
-
-        if (sellOrders.isEmpty()) {
-            return;
-        }
-
-        Queue<Order> queue = sellOrders.firstEntry().getValue();
-
-        queue.poll();
-
-        queue.offer(order);
-    }
-
-    public Double getBestPrice() {
-
-        if (sellOrders.isEmpty()) {
-            return null;
-        }
-
-        return sellOrders.firstKey();
-    }
-
     public boolean isEmpty() {
         return sellOrders.isEmpty();
     }
@@ -76,6 +54,6 @@ public class SellOrderBook {
     }
 
     public void clear() {
-        sellOrders.clear();
+    sellOrders.clear();
     }
 }

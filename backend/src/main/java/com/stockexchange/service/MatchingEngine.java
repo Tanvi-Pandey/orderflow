@@ -45,7 +45,7 @@ public class MatchingEngine {
 
             // Clean up the resting order if fully filled
             if (bestSell.getQuantity() == 0) {
-                orderBook.getSellOrderBook().removeBestOrder();
+                orderBook.getSellOrderBook().pollBestOrder();
             }
         }
 
@@ -75,7 +75,7 @@ public class MatchingEngine {
 
             // Clean up the resting order if fully filled
             if (bestBuy.getQuantity() == 0) {
-                orderBook.getBuyOrderBook().removeBestOrder();
+                orderBook.getBuyOrderBook().pollBestOrder();
             }
         }
 
