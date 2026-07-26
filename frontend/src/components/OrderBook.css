@@ -1,0 +1,74 @@
+.orderbook {
+  margin-top: 25px;
+  background: #0f1b2e;
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.orderbook-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.orderbook-header h2 {
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.live-dot {
+  background: #00c896;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.orderbook table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orderbook th {
+  padding: 14px;
+  background: #08111f;
+  color: #8fb6e8;
+  font-size: 14px;
+  text-align: center;
+}
+
+.orderbook td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.orderbook tr:hover {
+  background: rgba(41,182,246,0.08);
+}
+
+.buy {
+  color: #8e00d0;
+  font-weight: 600;
+}
+
+.sell {
+  color: #5b8fff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+  .orderbook {
+    overflow-x: auto;
+  }
+
+  .orderbook table {
+    min-width: 600px;
+  }
+
+}

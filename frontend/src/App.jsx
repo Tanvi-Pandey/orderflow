@@ -1,25 +1,47 @@
 import "./App.css";
+import OrderBook from "./components/OrderBook";
+import OrderEntry from "./components/OrderEntry";
+
 import {
   FaChartLine,
   FaUserCircle,
   FaBell,
   FaSearch,
-  FaArrowUp,
-  FaArrowDown,
   FaWallet,
   FaChartPie,
-  FaNewspaper,
   FaCoins,
   FaGlobe,
-  FaFire,
-  FaBars
+  FaNewspaper,
+  FaArrowUp,
 } from "react-icons/fa";
 
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
+
 function App() {
+
+  const chartData = [
+    { day: "Mon", value: 120 },
+    { day: "Tue", value: 180 },
+    { day: "Wed", value: 160 },
+    { day: "Thu", value: 240 },
+    { day: "Fri", value: 310 },
+    { day: "Sat", value: 280 },
+    { day: "Sun", value: 350 },
+  ];
+
   return (
+
     <div className="app">
 
-      {/* ================= NAVBAR ================= */}
+      {/* NAVBAR */}
 
       <header className="navbar">
 
@@ -28,647 +50,350 @@ function App() {
           <h2>OrderFlow</h2>
         </div>
 
-        <nav className="nav-links">
+        <nav>
+
+          <a href="#">Dashboard</a>
+
           <a href="#">Markets</a>
+
           <a href="#">Portfolio</a>
-          <a href="#">Trade</a>
-          <a href="#">Watchlist</a>
+
+          <a href="#">Orders</a>
+
           <a href="#">News</a>
-          <a href="#">Learn</a>
+
         </nav>
 
-        <div className="search-box">
+        <div className="search">
+
           <FaSearch />
-          <input type="text" placeholder="Search Stocks..." />
+
+          <input
+            placeholder="Search Stocks..."
+          />
+
         </div>
 
-        <div className="nav-right">
+        <div className="profile">
 
-          <FaBell className="bell"/>
+          <FaBell />
 
-          <button className="login">
-            Login
-          </button>
-
-          <button className="register">
-            Register
-          </button>
-
-          <FaUserCircle className="profile"/>
+          <FaUserCircle />
 
         </div>
 
       </header>
 
-
-      {/* ================= HERO ================= */}
-
+      {/* HERO SECTION */}
       <section className="hero">
 
-        <div className="hero-left">
+  <div className="hero-left">
 
-          <span className="tag">
-            India's Smart Trading Platform
-          </span>
+    <span className="badge">
+      Professional Trading Platform
+    </span>
 
-          <h1>
+    <h1>
+      Trade Stocks
+      <br />
+      Like a Pro
+    </h1>
 
-            Trade Smarter.
+    <p>
+      Modern stock trading dashboard with portfolio
+      management, live order book, market analytics,
+      watchlists and professional order execution.
+    </p>
 
-            <br/>
+    <div className="hero-buttons">
 
-            Invest Better.
+      <button className="primary">
+        Start Trading
+      </button>
 
-          </h1>
+      <button className="secondary">
+        Live Markets
+      </button>
 
-          <p>
+    </div>
 
-            Professional stock trading dashboard inspired by
-            modern fintech platforms. Track markets,
-            analyse stocks and execute trades in seconds.
+  </div>
 
-          </p>
+  <div className="hero-right">
 
-          <div className="hero-buttons">
+    <div className="portfolio-card">
 
-            <button className="start-btn">
-              Start Trading
-            </button>
+      <h3>Portfolio Value</h3>
 
-            <button className="market-btn">
-              Live Market
-            </button>
+      <h1>$245,820</h1>
 
-          </div>
+      <span>
 
-          <div className="stats">
+        <FaArrowUp />
 
-            <div>
-              <h2>12L+</h2>
-              <p>Users</p>
-            </div>
+        14.82%
 
-            <div>
-              <h2>250+</h2>
-              <p>Stocks</p>
-            </div>
+      </span>
 
-            <div>
-              <h2>99.9%</h2>
-              <p>Uptime</p>
-            </div>
+    </div>
 
-          </div>
+  </div>
 
-        </div>
+</section>
 
-        <div className="hero-right">
+{/* DASHBOARD CARDS */}
 
-          <div className="hero-card">
+<section className="cards">
 
-            <h3>Portfolio Value</h3>
+  <div className="card">
 
-            <h1>₹12,48,520</h1>
+    <FaWallet />
 
-            <span className="green">
-              +18.26% Today
-            </span>
+    <h3>Balance</h3>
 
-          </div>
+    <h2>$52,430</h2>
 
-        </div>
+  </div>
 
-      </section>
+  <div className="card">
 
+    <FaChartPie />
 
-      {/* ================= LIVE TICKER ================= */}
+    <h3>Today's Profit</h3>
 
-      <section className="ticker">
+    <h2>$12,520</h2>
 
-        <div>NIFTY 50 <span>22,514 ▲1.20%</span></div>
+  </div>
 
-        <div>SENSEX <span>74,820 ▲0.82%</span></div>
+  <div className="card">
 
-        <div>BANK NIFTY <span>48,250 ▲0.68%</span></div>
+    <FaCoins />
 
-        <div>BTC ₹57,42,000</div>
+    <h3>Holdings</h3>
 
-        <div>ETH ₹2,91,000</div>
+    <h2>27 Stocks</h2>
 
-        <div>GOLD ₹72,500</div>
+  </div>
 
-        <div>CRUDE ₹6,480</div>
+  <div className="card">
 
-      </section>
+    <FaGlobe />
 
+    <h3>Markets Open</h3>
 
-      {/* ================= DASHBOARD ================= */}
+    <h2>18</h2>
 
-      <section className="dashboard">
+  </div>
 
-        <div className="dashboard-card">
+</section>
 
-          <FaWallet/>
+{/* MAIN GRID */}
 
-          <h3>Available Balance</h3>
+<section className="main-grid">
 
-          <h2>₹5,42,000</h2>
+  {/* LEFT SIDE */}
 
-        </div>
+  <div className="left">
 
-        <div className="dashboard-card">
+    <div className="chart-card">
 
-          <FaChartPie/>
+      <div className="heading">
 
-          <h3>Today's Profit</h3>
-
-          <h2 className="green">
-            +₹21,240
-          </h2>
-
-        </div>
-
-        <div className="dashboard-card">
-
-          <FaCoins/>
-
-          <h3>Open Positions</h3>
-
-          <h2>18</h2>
-
-        </div>
-
-        <div className="dashboard-card">
-
-          <FaFire/>
-
-          <h3>Success Rate</h3>
-
-          <h2>84%</h2>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= MAIN GRID ================= */}
-
-      <section className="main-grid">
-
-        {/* LEFT */}
-
-        <div className="left-column">
-
-          {/* Trading Chart */}
-
-          <div className="glass chart-box">
-
-            <div className="heading">
-
-              <h2>Market Performance</h2>
-
-              <button>
-                Full Report
-              </button>
-
-            </div>
-
-            <div className="fake-chart">
-
-              <div className="line1"></div>
-
-              <div className="line2"></div>
-
-              <div className="line3"></div>
-
-            </div>
-
-          </div>
-
-          {/* Watchlist */}
-
-          <div className="glass watchlist">
-
-            <h2>Watchlist</h2>
-
-            <table>
-
-              <thead>
-
-                <tr>
-
-                  <th>Stock</th>
-
-                  <th>Price</th>
-
-                  <th>Change</th>
-
-                </tr>
-
-              </thead>
-
-              <tbody>
-
-                <tr>
-
-                  <td>RELIANCE</td>
-
-                  <td>₹2920</td>
-
-                  <td className="green">
-                    +1.25%
-                  </td>
-
-                </tr>
-
-                <tr>
-
-                  <td>TCS</td>
-
-                  <td>₹3922</td>
-
-                  <td className="green">
-                    +0.84%
-                  </td>
-
-                </tr>
-
-                <tr>
-
-                  <td>INFY</td>
-
-                  <td>₹1715</td>
-
-                  <td className="red">
-                    -0.21%
-                  </td>
-
-                </tr>
-
-                <tr>
-
-                  <td>HDFC</td>
-
-                  <td>₹1684</td>
-
-                  <td className="green">
-                    +2.31%
-                  </td>
-
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </div>
-                    </div>
-
-
-          {/* ================= TOP GAINERS ================= */}
-
-          <div className="glass gainers">
-
-            <h2>
-              Top Gainers
-            </h2>
-
-            <div className="stock-row">
-
-              <div>
-                <h3>RELIANCE</h3>
-                <p>Energy & Retail</p>
-              </div>
-
-              <span className="green">
-                +3.42%
-              </span>
-
-            </div>
-
-
-            <div className="stock-row">
-
-              <div>
-                <h3>TATA MOTORS</h3>
-                <p>Automobile</p>
-              </div>
-
-              <span className="green">
-                +2.86%
-              </span>
-
-            </div>
-
-
-            <div className="stock-row">
-
-              <div>
-                <h3>ICICI BANK</h3>
-                <p>Banking</p>
-              </div>
-
-              <span className="green">
-                +2.12%
-              </span>
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-
-        {/* ================= RIGHT COLUMN ================= */}
-
-        <div className="right-column">
-
-
-          {/* Market News */}
-
-          <div className="glass news-box">
-
-            <div className="heading">
-
-              <h2>
-                Market News
-              </h2>
-
-              <FaNewspaper/>
-
-            </div>
-
-
-            <div className="news-item">
-
-              <h3>
-                RBI keeps interest rates unchanged
-              </h3>
-
-              <p>
-                Banking stocks react positively after policy announcement.
-              </p>
-
-            </div>
-
-
-            <div className="news-item">
-
-              <h3>
-                IT sector sees strong recovery
-              </h3>
-
-              <p>
-                Technology stocks gain momentum in global markets.
-              </p>
-
-            </div>
-
-
-            <div className="news-item">
-
-              <h3>
-                Gold prices reach new highs
-              </h3>
-
-              <p>
-                Investors move towards safe assets.
-              </p>
-
-            </div>
-
-
-          </div>
-
-
-
-          {/* ================= TRADE PANEL ================= */}
-
-
-          <div className="glass trade-box">
-
-
-            <h2>
-              Quick Trade
-            </h2>
-
-
-            <div className="trade-input">
-
-              <input 
-                type="text"
-                placeholder="Enter Stock Name"
-              />
-
-            </div>
-
-
-            <div className="trade-buttons">
-
-              <button className="buy">
-                Buy
-              </button>
-
-
-              <button className="sell">
-                Sell
-              </button>
-
-
-            </div>
-
-
-          </div>
-
-
-
-          {/* ================= GLOBAL MARKET ================= */}
-
-
-          <div className="glass global-box">
-
-
-            <div className="heading">
-
-              <h2>
-                Global Markets
-              </h2>
-
-              <FaGlobe/>
-
-            </div>
-
-
-
-            <div className="market-row">
-
-              <span>
-                NASDAQ
-              </span>
-
-              <b className="green">
-                +1.45%
-              </b>
-
-            </div>
-
-
-
-            <div className="market-row">
-
-              <span>
-                DOW JONES
-              </span>
-
-              <b className="green">
-                +0.72%
-              </b>
-
-            </div>
-
-
-
-            <div className="market-row">
-
-              <span>
-                FTSE 100
-              </span>
-
-              <b className="red">
-                -0.31%
-              </b>
-
-            </div>
-
-
-
-          </div>
-
-
-        </div>
-
-
-      </section>
-            {/* ================= FOOTER ================= */}
-
-      <footer className="footer">
-
-        <div className="footer-left">
-
-          <div className="logo">
-
-            <FaChartLine />
-
-            <h2>
-              OrderFlow
-            </h2>
-
-          </div>
-
-
-          <p>
-            Smart trading dashboard for modern investors.
-            Track markets, manage portfolios and make
-            better investment decisions.
-          </p>
-
-
-        </div>
-
-
-
-        <div className="footer-links">
-
-
-          <div>
-
-            <h3>
-              Platform
-            </h3>
-
-            <a href="#">
-              Markets
-            </a>
-
-            <a href="#">
-              Trading
-            </a>
-
-            <a href="#">
-              Portfolio
-            </a>
-
-          </div>
-
-
-
-          <div>
-
-            <h3>
-              Company
-            </h3>
-
-            <a href="#">
-              About
-            </a>
-
-            <a href="#">
-              Careers
-            </a>
-
-            <a href="#">
-              Contact
-            </a>
-
-          </div>
-
-
-
-          <div>
-
-            <h3>
-              Support
-            </h3>
-
-            <a href="#">
-              Help Center
-            </a>
-
-            <a href="#">
-              Privacy
-            </a>
-
-            <a href="#">
-              Terms
-            </a>
-
-          </div>
-
-
-        </div>
-
-
-      </footer>
-
-
-
-      {/* ================= COPYRIGHT ================= */}
-
-      <div className="copyright">
-
-        © 2026 OrderFlow. All Rights Reserved.
+        <h2>
+          Market Overview
+        </h2>
 
       </div>
 
+      <ResponsiveContainer
+        width="100%"
+        height={320}
+      >
+
+        <LineChart data={chartData}>
+
+          <CartesianGrid strokeDasharray="3 3" />
+
+          <XAxis dataKey="day" />
+
+          <YAxis />
+
+          <Tooltip />
+
+          <Line
+            type="monotone"
+            dataKey="value"
+            stroke="#00c896"
+            strokeWidth={3}
+          />
+
+        </LineChart>
+
+      </ResponsiveContainer>
 
     </div>
+
+    {/* LIVE ORDER BOOK */}
+
+    <OrderBook />
+
+  </div>
+
+  {/* RIGHT SIDE */}
+
+  <div className="right">
+
+    <OrderEntry />
+          {/* WATCHLIST */}
+
+      <div className="watchlist">
+
+        <h2>Watchlist</h2>
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Stock</th>
+
+              <th>Price</th>
+
+              <th>Change</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>RELIANCE</td>
+
+              <td>$2,850</td>
+
+              <td className="green">+2.4%</td>
+
+            </tr>
+
+            <tr>
+
+              <td>TCS</td>
+
+              <td>$4,120</td>
+
+              <td className="green">+1.9%</td>
+
+            </tr>
+
+            <tr>
+
+              <td>INFY</td>
+
+              <td>$1,710</td>
+
+              <td className="blue">+0.6%</td>
+
+            </tr>
+
+            <tr>
+
+              <td>HDFCBANK</td>
+
+              <td>$1,890</td>
+
+              <td className="green">+1.1%</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      {/* MARKET NEWS */}
+
+      <div className="news">
+
+        <h2>
+
+          <FaNewspaper />
+
+          Market News
+
+        </h2>
+
+        <div className="news-item">
+
+          <h4>NIFTY closes at record high</h4>
+
+          <p>
+            Banking, IT and Auto sectors led today's rally with strong buying interest.
+          </p>
+
+        </div>
+
+        <div className="news-item">
+
+          <h4>Global Markets Rally</h4>
+
+          <p>
+            US and Asian markets remain positive ahead of major economic data releases.
+          </p>
+
+        </div>
+
+        <div className="news-item">
+
+          <h4>Technology Stocks Gain</h4>
+
+          <p>
+            Semiconductor and AI companies continue to outperform the broader market.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  {/* FOOTER */}
+
+  <footer className="footer">
+
+    <div>
+
+      <h2>OrderFlow</h2>
+
+      <p>
+        Professional Trading Dashboard built using React.
+      </p>
+
+    </div>
+
+    <div>
+
+      <a href="#">About</a>
+
+      <a href="#">Support</a>
+
+      <a href="#">Privacy</a>
+
+      <a href="#">Contact</a>
+
+    </div>
+
+  </footer>
+
+</div>
 
   );
 
 }
-
 
 export default App;
