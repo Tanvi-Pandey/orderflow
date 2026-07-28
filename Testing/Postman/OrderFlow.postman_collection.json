@@ -1,0 +1,73 @@
+{
+  "info": {
+    "_postman_id": "ebbee0fb-61a5-462b-aaf4-09cdd2a54263",
+    "name": "OrderFlow APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56920036",
+    "_collection_link": "https://go.postman.co/collection/56920036-ebbee0fb-61a5-462b-aaf4-09cdd2a54263?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Order APIs",
+      "item": [
+        {
+          "name": "order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"symbol\": \"TCS\",\r\n    \"side\": \"BUY\",\r\n    \"type\": \"LIMIT\",\r\n    \"price\": 3200,\r\n    \"quantity\": 15\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Order Book",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Trade APIs",
+      "item": [
+        {
+          "name": "trades",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "tradescount",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
