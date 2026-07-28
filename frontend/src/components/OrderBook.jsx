@@ -78,6 +78,7 @@ function OrderBook() {
             </tr>
 
           ))}
+          
 
         </tbody>
 
