@@ -5,7 +5,9 @@ import com.stockexchange.model.Order;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MarketDepthService {
 
     private final OrderBook orderBook;
