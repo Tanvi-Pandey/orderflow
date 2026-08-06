@@ -1,0 +1,79 @@
+.market-summary{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:20px;
+
+    margin:25px 0;
+
+}
+
+
+
+.summary-card{
+
+    background:#111827;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    border:1px solid #1f2937;
+
+    transition:0.3s;
+
+}
+
+
+
+.summary-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.summary-card h3{
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+}
+
+
+
+.summary-card h2{
+
+    margin:12px 0;
+
+    font-size:26px;
+
+}
+
+
+
+.summary-card p{
+
+    color:#22c55e;
+
+    font-weight:500;
+
+}
+
+
+
+@media(max-width:900px){
+
+    .market-summary{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
